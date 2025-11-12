@@ -5,6 +5,24 @@ const cart = document.getElementById('cart');
 const totalPriceSpan = document.getElementById('total-price');
  
 let totalPrice = 0;
+
+function addProduct () {
+  const name = productNameInput.value
+  const price = productPriceInput.value
+
+  if(name === "") {
+    return alert("Please input name of product")
+  }
+  if(price === "") {
+    return alert("Please input price of product")
+  }
+
+  const newLi = document.createElement("li")
+  cart.appendChild(newLi)
+  newLi.textContent = `${name} $${price}` 
+}
+
+addProductButton.addEventListener("click", addProduct)
  
 // Function to update the total price
 function updateTotalPrice(amount) {
@@ -19,3 +37,9 @@ function removeItem(event) {
   updateTotalPrice(-price);
   item.remove();
 }
+
+//create function with var for price and name (use parseFloat)
+//make alerts for when they dont add numbers or letters
+//create var for creating the li
+//added remove item function
+//create var for add the quanitity and total price
