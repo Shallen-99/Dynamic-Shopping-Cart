@@ -8,7 +8,7 @@ let totalPrice = 0;
 
 function addProduct () {
   const name = productNameInput.value
-  const price = productPriceInput.value
+  const price = parseFloat(productPriceInput.value)
 
   if(name === "") {
     return alert("Please input name of product")
@@ -19,7 +19,8 @@ function addProduct () {
 
   const newLi = document.createElement("li")
   cart.appendChild(newLi)
-  newLi.textContent = `${name} $${price}` 
+  newLi.innerHTML = `${name} $${price} <button class="remove-btn">Remove</button>`
+  newLi.querySelector(".remove-btn").addEventListener("click", removeItem) 
 }
 
 addProductButton.addEventListener("click", addProduct)
